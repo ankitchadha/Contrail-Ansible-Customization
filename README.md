@@ -68,4 +68,3 @@ set groups __contrail_basic__ snmp community public authorization read-only
 {master:0}[edit]
 
 NOTE: All the configuration pushed by contrail to the underlay devices is stored under a Junos configuration group. This means any more-specific user-configuration is not impacted by Contrail's discovery of the underlay Fabric devices.
-
