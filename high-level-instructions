@@ -1,0 +1,11 @@
+Steps needed for Sandboxing. Note that the end-customer would never need to restart containers or delete fabric etc.
+
+1. Update schema
+(optional). delete existing fabric
+(optional). run cleanup.py
+(optional). restart the docker container for config_api
+(optional). make sure that the schema is updated
+(optional). read the contents of role_config_config for the desired role (QFX10k in this case)
+2. update the role_config_config property of the desired role's role-config.
+3. update the jinja template to include the necessasry configuration section
+4. Discover the fabric and assign roles. You should see the corresponding JunOS values being pushed
