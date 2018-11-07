@@ -72,4 +72,5 @@ The idea is the same with a slight difference. For my demo/design, BFD is needed
 Some differences from the use-case mentioned above:
 1. Schema change will need to be done to the ip_clos section
 2. jinja2 template for the ip_clos functionality will need to be changed
+
 Detailed steps with snippets to follow soon.
