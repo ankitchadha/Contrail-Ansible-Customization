@@ -24,11 +24,11 @@ Dynamic GUI rendering for such additional features is not supported in 5.0.1. As
 
 I used a setup with vQFXs, these correspond to the qfx10k role-config object.
 
->>> from vnc_api import vnc_api
->>> vnc_lib = vnc_api.VncApi()
->>> vnc_lib = vnc_api.VncApi()
->>> rc_obj = vnc_lib.role_config_read(id="73f6bf3b-68e9-484c-93c1-81c5bb6cdf22") << UUID For QFX10k role-config
->>> rc_obj.dump()
+from vnc_api import vnc_api
+vnc_lib = vnc_api.VncApi()
+vnc_lib = vnc_api.VncApi()
+rc_obj = vnc_lib.role_config_read(id="73f6bf3b-68e9-484c-93c1-81c5bb6cdf22") << UUID For QFX10k role-config
+rc_obj.dump()
 ------------ role-config ------------
 Name =  [u'default-global-system-config', u'juniper-qfx10k', u'underlay_ip_clos']
 Uuid =  73f6bf3b-68e9-484c-93c1-81c5bb6cdf22
@@ -40,12 +40,12 @@ P annotations =  None
 P display_name =  None
 REF job_template =  [{u'to': [u'default-global-system-config', u'fabric_config_template'], u'href': u'http://172.16.1.102:8082/job-template/7b0e099e-45a0-43b8-8f66-b50be2ae2fcc', u'attr': None, u'uuid': u'7b0e099e-45a0-43b8-8f66-b50be2ae2fcc'}]
 REF tag =  None
->>>
+
 
 IMPORTANT NOTE: The stock role_config_config value is a dictionary, but at the time of customization the user needs to provide the value as a string. And that string should be in a valid dictionary format. This dictionary format should conform to the schema changes that were made earlier. Check it out:
 
->>> rc_obj.set_role_config_config("{'ntp': {'time_zone': 'PST'}, 'snmp': {'communities': [{'readonly': true, 'name': 'public'}]}}")
->>> vnc_lib.role_config_update(rc_obj)
+rc_obj.set_role_config_config("{'ntp': {'time_zone': 'PST'}, 'snmp': {'communities': [{'readonly': true, 'name': 'public'}]}}")
+vnc_lib.role_config_update(rc_obj)
 
 Now you should be able to see your updated changes if you query the Contrail-API server (port# 8082).
 
