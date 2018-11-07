@@ -1,7 +1,5 @@
 # Contrail-Ansible-Customization
 
-Detailed steps with snippets to follow soon.
-
 ## NTP use case:
 
 #### Step-1: Update the schema:
@@ -68,3 +66,10 @@ set groups __contrail_basic__ snmp community public authorization read-only
 {master:0}[edit]
 
 NOTE: All the configuration pushed by contrail to the underlay devices is stored under a Junos configuration group. This means any more-specific user-configuration is not impacted by Contrail's discovery of the underlay Fabric devices.
+
+## BFD use-case:
+The idea is the same with a slight difference. For my demo/design, BFD is needed only for the Underlay BGP peering. The idea is that if the underlay peering goes down, it'll automatically take down the overlay peering.
+Some differences from the use-case mentioned above:
+1. Schema change will need to be done to the ip_clos section
+2. jinja2 template for the ip_clos functionality will need to be changed
+Detailed steps with snippets to follow soon.
